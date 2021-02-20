@@ -1,12 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchUser } from "../actions";
 class UserHeader extends React.Component {
     // jab bhi render ho fetchuser action call ho aur phir usmein fetchuser waala user action run kre aur id apss krein
-
-    componentDidMount (){
-        this.props.fetchUser(this.props.userId);
-    }
+    // componentDidMount (){
+    //     this.props.fetchUser(this.props.userId);
+    // }
     render (){
         // we dont need to render the whole user list inside the component rather we can
         // just find the user  in maptostateprops and then can pass the user to this 
@@ -28,4 +26,4 @@ const mapStateToProps = (state,ownProps) =>{
     return {user:state.users.find(user => user.id == ownProps.userId)};
 }
 
-export default connect(mapStateToProps,{fetchUser})(UserHeader);
+export default connect(mapStateToProps)(UserHeader);
